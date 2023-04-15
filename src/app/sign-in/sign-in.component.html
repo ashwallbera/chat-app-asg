@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center" style="margin-top: 15%">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input 
+      [formControl] = "username"
+      matInput placeholder="Enter username..." />
+      <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input  [formControl] = "password" matInput [type]="hide ? 'password' : 'text'" />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+    
+    <div class="d-flex justify-content-between">
+      <a routerLink="/signup">Signup</a>
+      <button mat-raised-button color="primary" (click)="signin()">Signin</button>
+    </div>
+  </div>
+</div>
