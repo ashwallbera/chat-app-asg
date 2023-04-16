@@ -1,0 +1,24 @@
+<h1 matDialogTitle>ADD CONTACT</h1>
+
+<table style="margin: 5%">
+  <tr>
+    <th>USERNAME</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.username }}</td>
+    <td>
+      <button
+        (click)="addContact(user)"
+        mat-mini-fab
+        color="primary"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </td>
+  </tr>
+</table>
+
+<mat-dialog-actions align="end">
+  <button mat-button matDialogClose>Close</button>
+</mat-dialog-actions>

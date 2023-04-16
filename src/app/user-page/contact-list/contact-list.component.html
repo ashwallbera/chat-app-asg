@@ -1,6 +1,28 @@
-<li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)=onSelect(user)>
+<div class="d-flex justify-content-center">
+  <div>
+    <h2>
+      <div style="width:100%">
+		<div class="d-flex justify-content-between">
+			<button mat-raised-button (click)="addContact()" color="primary">
+			  Add Contact
+			</button>
+	
+			<button mat-mini-fab color="primary" (click)="logout()">
+			  <mat-icon>exit_to_app</mat-icon>
+			</button>
+		  </div>
+	  </div>
+    </h2>
 
-	{{user.id}} {{user.username}}
-    
-</li>
-<router-outlet></router-outlet>
+	<h3>Contact List</h3>
+    <li
+      *ngFor="let user of users"
+      [class.selected]="user === selectedUser"
+      (click)="onSelect(user)"
+    >
+      {{ user.username }}
+    </li>
+
+    <router-outlet></router-outlet>
+  </div>
+</div>

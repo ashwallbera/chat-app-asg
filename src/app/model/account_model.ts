@@ -1,5 +1,5 @@
 export interface AccountModel{
-    id: string | any
+    id: string;
     username: string;
     password: string;
 }

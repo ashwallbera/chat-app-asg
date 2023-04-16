@@ -1,1 +1,71 @@
-USER ID: {{userID}}
+<div style="width: 500px; border-color: black">
+  USER ID: {{ userID }}
+  <br />
+
+  <br />
+  <br />
+
+  <div style="margin-right: 100px" *ngFor="let message of messages">
+    <div
+      class="d-flex justify-content-start"
+      *ngIf="!isCurrentUser(message.sentby)"
+    >
+      <b>{{ message.message }}</b>
+    </div>
+    <div
+      class="d-flex justify-content-start"
+      *ngIf="!isCurrentUser(message.sentby)"
+    >
+      {{ message.time }}
+    </div>
+    <div
+      class="d-flex justify-content-start"
+      *ngIf="!isCurrentUser(message.sentby)"
+    >
+      {{ message.date }}
+    </div>
+
+    <div
+      class="d-flex justify-content-end"
+      *ngIf="isCurrentUser(message.sentby)"
+    >
+      <b>{{ message.message }}</b>
+    </div>
+    <div
+      class="d-flex justify-content-end"
+      *ngIf="isCurrentUser(message.sentby)"
+    >
+      {{ message.time }}
+    </div>
+    <div
+      class="d-flex justify-content-end"
+      *ngIf="isCurrentUser(message.sentby)"
+    >
+      {{ message.date }}
+    </div>
+  </div>
+
+  <br />
+
+  <div style="width: 100%">
+    <div class="d-flex justify-content-between">
+      <mat-form-field appearance="outline" style="width: 430px">
+        <mat-label>Message</mat-label>
+        <input
+          [formControl]="message"
+          matInput
+          placeholder="Enter Message..."
+        />
+      </mat-form-field>
+
+      <button
+        mat-mini-fab
+        color="primary"
+        (click)="sendMessage()"
+        [disabled]="!message.valid"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

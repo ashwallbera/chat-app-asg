@@ -27,7 +27,7 @@ export class SignInComponent {
               //USER EXIST
               if (child.val().password == this.password.value!) {
                 this.router.navigate(['/user'])
-                //localStorage.setItem("abtsaccount",JSON.stringify(user))
+                localStorage.setItem("asgaccount",JSON.stringify(child.val()))
               }
             } else {
               console.log('No data available');
